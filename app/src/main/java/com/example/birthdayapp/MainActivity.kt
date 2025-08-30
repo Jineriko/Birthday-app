@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.example.birthdayapp.repository.BirthdayRepository
+import com.example.birthdayapp.data.BirthdayRepository
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import androidx.compose.material.icons.Icons
@@ -44,10 +44,12 @@ fun BirthdayListScreen() {
                 actions = {
                     IconButton(
                         onClick = {
-                            val intent = Intent(context, com.example.birthdayapp.activity.CalendarActivity::class.java)
+                            val intent = Intent(context, com.example.birthdayapp.activity.MonthActivity::class.java)
                             context.startActivity(intent)
                         }
-                    ) { Icon(Icons.Outlined.CalendarMonth, contentDescription = "Открыть календарь") }
+                    ) {
+                        Icon(Icons.Outlined.CalendarMonth, contentDescription = "Открыть список месяцев")
+                    }
                 }
             )
         }

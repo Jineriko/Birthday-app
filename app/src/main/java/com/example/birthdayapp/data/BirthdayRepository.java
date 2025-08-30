@@ -1,6 +1,6 @@
-package com.example.birthdayapp.repository;
+package com.example.birthdayapp.data;
 
-import com.example.birthdayapp.model.Birthday;
+import com.example.birthdayapp.model.Person;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -8,15 +8,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class BirthdayRepository {
-    public static List<Birthday> getAll(){
+    public static List<Person> getAll(){
         return Arrays.asList(
-                new Birthday("Мама", LocalDate.of(1970, 8, 31)),
-                new Birthday("Папа", LocalDate.of(1966, 8, 28)),
-                new Birthday("Сестра", LocalDate.of(1999, 10, 11))
+                new Person("Мама", LocalDate.of(1970, 8, 31)),
+                new Person("Папа", LocalDate.of(1966, 8, 28)),
+                new Person("Сестра", LocalDate.of(1999, 10, 11)),
+                new Person("Брат", LocalDate.of(1999, 1, 11))
         );
     }
 
-    public static List<Birthday> getUpcoming() {
+    public static List<Person> getUpcoming() {
         LocalDate now = LocalDate.now();
         int currentMonth = now.getMonthValue();
 

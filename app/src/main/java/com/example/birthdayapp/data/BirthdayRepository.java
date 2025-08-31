@@ -1,39 +1,46 @@
 package com.example.birthdayapp.data;
 
+import com.example.birthdayapp.R;
 import com.example.birthdayapp.model.Person;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class BirthdayRepository {
-    public static List<Person> getAll(){
-        return Arrays.asList(
-                new Person("Мама", LocalDate.of(1970, 8, 31)),
-                new Person("Папа", LocalDate.of(1966, 8, 28)),
-                new Person("Сестра", LocalDate.of(1999, 10, 11)),
-                new Person("Брат", LocalDate.of(1999, 1, 11))
-        );
+
+    private final List<Person> people = new ArrayList<>();
+    public BirthdayRepository() {
+        // Пример данных
+        people.add(new Person("Иван Иванов", LocalDate.of(1990, 9, 15)));  // сентябрь
+        people.add(new Person("Петр Петров", LocalDate.of(1985, 10, 5)));  // октябрь
+        people.add(new Person("Анна Смирнова", LocalDate.of(2000, 12, 25))); // декабрь
+        people.add(new Person("Мария Кузнецова", LocalDate.of(1995, 3, 3))); // март
     }
 
-    public static List<Person> getUpcoming() {
-        LocalDate now = LocalDate.now();
-        int currentMonth = now.getMonthValue();
+    public List<Person> getAllPeople() {
+        return people;
+    }
 
-        return getAll().stream()
-                .filter(b -> {
-                    int month = b.getBirth().getMonthValue();
-                    return month == currentMonth || month == (currentMonth % 12) + 1;
-                })
-                .sorted((b1, b2) -> {
-                    int m1 = b1.getBirth().getMonthValue();
-                    int m2 = b2.getBirth().getMonthValue();
-                    if (m1 != m2) return Integer.compare(m1, m2);
-                    return Integer.compare(b1.getBirth().getDayOfMonth(), b2.getBirth().getDayOfMonth());
+    // Получить только тех, у кого ДР в ближайший месяц
+    public List<Person> getUpcomingBirthdays() {
+        LocalDate now = LocalDate.now();
+        LocalDate oneMonthLater = now.plusMonths(1);
+
+        return people.stream()
+                .filter(person -> {
+                    LocalDate birthdayThisYear = person.getBirthDate()
+                            .withYear(now.getYear());
+
+                    // Если ДР уже прошел в этом году -> переносим на след. год
+                    if (birthdayThisYear.isBefore(now)) {
+                        birthdayThisYear = birthdayThisYear.plusYears(1);
+                    }
+
+                    return !birthdayThisYear.isAfter(oneMonthLater);
                 })
                 .collect(Collectors.toList());
     }
-
-
 }

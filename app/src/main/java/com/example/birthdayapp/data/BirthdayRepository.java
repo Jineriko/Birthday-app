@@ -22,7 +22,10 @@ public class BirthdayRepository {
                 new Person("Дядя1", LocalDate.of(1995, 9, 14)),
                 new Person("Дядя2", LocalDate.of(1977, 9, 29)),
                 new Person("Тетя1", LocalDate.of(1900, 9, 30)),
-                new Person("Тетя2", LocalDate.of(1876, 10, 1))
+                new Person("Тетя2", LocalDate.of(1876, 10, 1)),
+                new Person("Тетя3", LocalDate.of(1876, 9, 1)),
+                new Person("Тетя4", LocalDate.of(1876, 9, 15)),
+                new Person("Тетя5", LocalDate.of(1876, 9, 22))
         );
     }
 
@@ -31,7 +34,7 @@ public class BirthdayRepository {
         return getUpcomingBirthdays(30);
     }
 
-    public static List<Person> getUpcomingBirthdays(int daysWindow) {
+    private static List<Person> getUpcomingBirthdays(int daysWindow) {
         LocalDate today = LocalDate.now();
         return getAllBirthdays().stream()
                 .filter(person -> {

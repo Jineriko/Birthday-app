@@ -1,0 +1,19 @@
+package com.example.birthdayapp.ui.screens
+
+fun monthToName(month: Int): String {
+    return when(month) {
+        1 -> "Январе"
+        2 -> "Феврале"
+        3 -> "Марте"
+        4 -> "Апреле"
+        5 -> "Мае"
+        6 -> "Июне"
+        7 -> "Июле"
+        8 -> "Августе"
+        9 -> "Сентябре"
+        10 -> "Октябре"
+        11 -> "Ноябре"
+        12 -> "Декабре"
+        else -> ""
+    }
+}

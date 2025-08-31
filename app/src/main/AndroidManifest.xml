@@ -12,12 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BirthdayApp">
 
-        <!-- Вот тут ты зарегистрировал календарь -->
-        <activity
-            android:name=".activity.CalendarActivity"
-            android:exported="false"
-            android:theme="@style/Theme.BirthdayApp" />
-
         <!-- А это главный экран -->
         <activity
             android:name=".MainActivity"
@@ -29,17 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".activity.MonthActivity"
-            android:exported="false"
-            android:theme="@style/Theme.BirthdayApp"/>
-
-        <activity
-            android:name=".activity.BirthdayListActivity"
-            android:exported="false"
-            android:theme="@style/Theme.BirthdayApp"/>
-
 
     </application>
 

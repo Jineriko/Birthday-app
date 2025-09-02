@@ -14,17 +14,19 @@ import java.util.stream.Collectors;
 public class BirthdayRepository {
 
     private static final List<Person> people = new ArrayList<>(Arrays.asList(
-            new Person("Мама", LocalDate.of(1970, 8, 31)),
-            new Person("Папа", LocalDate.of(1966, 9, 28)),
-            new Person("Сестра", LocalDate.of(1999, 9, 11)),
-            new Person("Брат", LocalDate.of(1999, 9, 11)),
-            new Person("Дядя1", LocalDate.of(1995, 9, 14)),
-            new Person("Дядя2", LocalDate.of(1977, 9, 29)),
-            new Person("Тетя1", LocalDate.of(1900, 9, 30)),
-            new Person("Тетя2", LocalDate.of(1876, 10, 1)),
-            new Person("Тетя3", LocalDate.of(1876, 9, 1)),
-            new Person("Тетя4", LocalDate.of(1876, 9, 15)),
-            new Person("Тетя5", LocalDate.of(1876, 9, 22))
+            new Person("Северюхин Михаил", LocalDate.of(1967, 5, 11)),
+            new Person("Северюхина Марина", LocalDate.of(1974, 10, 15)),
+            new Person("Северюхин Алексей", LocalDate.of(1995, 11, 18)),
+            new Person("Северюхин Александр", LocalDate.of(2005, 7, 15)),
+            new Person("Северюхина Мария", LocalDate.of(1998, 6, 21)),
+            new Person("Северюхина София", LocalDate.of(2009, 2, 21)),
+            new Person("Северюхин Владимир", LocalDate.of(1962, 10, 8)),
+            new Person("Тимошка", LocalDate.of(2020, 10, 7)),
+            new Person("Жуйков Валерий", LocalDate.of(1950, 12, 2)),
+            new Person("Пестова Анна", LocalDate.of(1988, 6, 4)),
+            new Person("Тарасов Вячеслав", LocalDate.of(1995, 11, 17)),
+            new Person("Калинина Ксения", LocalDate.of(1996, 3, 19)),
+            new Person("Тестовый Черт", LocalDate.of(1996, 9, 19))
     ));
 
     public static List<Person> getAllBirthdays() {
